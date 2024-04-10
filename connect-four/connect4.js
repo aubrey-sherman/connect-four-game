@@ -22,9 +22,18 @@ function switchCurrPlayer() {
   // TODO: switch currPlayer 1 <-> 2
 }
 
-
+// TODO: set "board" to empty HEIGHT x WIDTH matrix array
+/**
+ * Input: gameState.board
+ * Output: Empty array that has length equal to HEIGHT - make that the new
+ * game board
+ */
 function makeBoard() {
-  // TODO: set "board" to empty HEIGHT x WIDTH matrix array
+  const board = gameState.board;
+  for (let i = 0; i < HEIGHT; i++) {
+    board[i] = Array(WIDTH).fill(null);
+  }
+  gameState.board = board;
 }
 
 

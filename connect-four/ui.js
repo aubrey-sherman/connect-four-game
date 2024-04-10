@@ -14,11 +14,14 @@ import {
 function makeHtmlBoard() {
   const $htmlBoard = document.querySelector("#board");
 
-  // TODO: add comment for this code
+  // Making top row that allows user to pick column for piece
+  // Creating $top element table row, and giving it an id of column-top
   const $top = document.createElement("tr");
   $top.setAttribute("id", "column-top");
 
-  // TODO: add comment for this code
+  // Creating table data equal to the length of WIDTH, giving it an unique id,
+  // adding an event listener, and appending it to the top of page.
+  // Create clickable board pieces for players
   for (let x = 0; x < WIDTH; x++) {
     const $headCell = document.createElement("td");
     $headCell.setAttribute("id", `top-${x}`);
