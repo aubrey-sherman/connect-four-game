@@ -14,6 +14,7 @@ import {
 function makeHtmlBoard() {
   const $htmlBoard = document.querySelector("#board");
 
+  // FIXME: Edit comments for function
   // Making top row that allows user to pick column for piece
   // Creating $top element table row, and giving it an id of column-top
   const $top = document.createElement("tr");

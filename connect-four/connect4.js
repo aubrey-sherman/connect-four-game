@@ -23,16 +23,15 @@ function switchCurrPlayer() {
 }
 
 /**
- * Input: gameState.board
- * Output: Empty array that has length equal to HEIGHT - make that the new
- * game board
+ * Mutates gamestate.board to match global constats for width and height
+ * and fills in each slot of board with null.
  */
 function makeBoard() {
   const board = gameState.board;
-  for (let i = 0; i < HEIGHT; i++) {
-    board[i] = Array(WIDTH).fill(null);
+
+  for (let y = 0; y < HEIGHT; y++) {
+    board[y] = Array(WIDTH).fill(null);
   }
-  gameState.board = board;
 }
 
 
