@@ -22,7 +22,6 @@ function switchCurrPlayer() {
   // TODO: switch currPlayer 1 <-> 2
 }
 
-// TODO: set "board" to empty HEIGHT x WIDTH matrix array
 /**
  * Input: gameState.board
  * Output: Empty array that has length equal to HEIGHT - make that the new
