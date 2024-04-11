@@ -73,7 +73,6 @@ function checkForWin() {
     // player
 
     console.log('Cells:', areCellsValid(cells));
-    console.log('Same color:', areAllSameColor(cells));
     return areCellsValid(cells) && areAllSameColor(cells);
   }
 
@@ -104,6 +103,7 @@ function checkForWin() {
    */
 
   function areAllSameColor(cells) {
+    console.log(cells);
     const cellBoardPieces = cells.map(cell => {
       const y = cell[0];
       const x = cell[1];
