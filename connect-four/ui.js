@@ -55,6 +55,12 @@ function makeHtmlBoard() {
 
 function placeInTable(y, x) {
   // TODO: make a div and insert into correct table cell
+  const $piece = document.createElement('div');
+  $piece.setAttribute('class', `p${gameState.currPlayer}`);
+  $piece.setAttribute('class', 'piece');
+
+  const boardPlace = document.querySelector(`#c-${y}-${x}`);
+  boardPlace.appendChild($piece);
 }
 
 
