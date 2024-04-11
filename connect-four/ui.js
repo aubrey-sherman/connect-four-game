@@ -107,7 +107,7 @@ function handleClick(evt) {
 function start() {
   makeBoard();
   makeHtmlBoard();
-  placeInTable(3, 5);
+
 }
 
 

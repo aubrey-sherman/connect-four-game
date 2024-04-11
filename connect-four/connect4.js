@@ -56,6 +56,8 @@ function findSpotInCol(x) {
 }
 
 
+
+
 /** checkForWin: check board cell-by-cell for "does a win start here?" */
 
 function checkForWin() {
@@ -69,12 +71,57 @@ function checkForWin() {
 
     // TODO: Check four cells to see if they're all legal & all color of current
     // player
-    cells.every(cell => {
-      y <= HEIGHT;
-      x <= WIDTH;
-    });
 
+    console.log('Cells:', areCellsValid(cells));
+    console.log('Same color:', areAllSameColor(cells));
+    return areCellsValid(cells) && areAllSameColor(cells);
   }
+
+  /**
+   * Input - array of array cells
+   * Output - true or false determining whether all values are valid
+   * Valid values are within board
+   */
+
+  function areCellsValid(cells) {
+    return cells.every(cell => {
+      const y = cell[0];
+      const x = cell[1];
+
+      if (y < HEIGHT && y >= 0 && x < WIDTH && x >= 0) {
+        return true;
+      } else {
+        return false;
+      }
+    });
+  }
+
+
+  /**
+   * Input - array of array cells
+   * Output - true or false determining whether all cells have the same color
+   * Valid values are within board
+   */
+
+  function areAllSameColor(cells) {
+    const cellBoardPieces = cells.map(cell => {
+      const y = cell[0];
+      const x = cell[1];
+      return gameState.board[y][x];
+    }).filter(piece => piece !== null);
+
+    if (cellBoardPieces.length !== 4) {
+      return false;
+    } else {
+      let sumOfPieces = cellBoardPieces.reduce((a, b) => a + b, 0);
+      if (sumOfPieces === 4 || sumOfPieces === 8) {
+        return true;
+      } else {
+        return false;
+      }
+    }
+  }
+
 
   // using HEIGHT and WIDTH, generate "check list" of coordinates
   // for 4 cells (starting here) for each of the different
