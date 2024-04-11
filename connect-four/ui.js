@@ -56,8 +56,9 @@ function makeHtmlBoard() {
 function placeInTable(y, x) {
   // TODO: make a div and insert into correct table cell
   const $piece = document.createElement('div');
-  $piece.setAttribute('class', `p${gameState.currPlayer}`);
-  $piece.setAttribute('class', 'piece');
+  //$piece.setAttribute('class', `p${gameState.currPlayer}`);
+  //$piece.setAttribute('class', 'piece');
+  $piece.classList.add('piece', `p${gameState.currPlayer}`);
 
   const boardPlace = document.querySelector(`#c-${y}-${x}`);
   boardPlace.appendChild($piece);
@@ -106,6 +107,7 @@ function handleClick(evt) {
 function start() {
   makeBoard();
   makeHtmlBoard();
+  placeInTable(3, 5);
 }
 
 
