@@ -82,6 +82,10 @@ function updateGameBoard(y, x) {
   board[y][x] = player;
 }
 
+/**
+ * checks array at index 0 for empty slots, and returns true if filled, false
+ * otherwise.
+ */
 function checkForTie() {
   const topRow = gameState.board[0];
   return topRow.every(value => value !== null);
@@ -113,7 +117,7 @@ function handleClick(evt) {
 
   // check for tie: if top row is filled, board is filled
   if (checkForTie()) {
-    endGame('The game is tied!');
+    return endGame('The game is tied!');
   }
 
   switchCurrPlayer();
