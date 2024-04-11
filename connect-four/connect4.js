@@ -40,8 +40,19 @@ function makeBoard() {
  */
 
 function findSpotInCol(x) {
-  // TODO: write the real version of this, rather than always returning 5
-  return 5;
+  let coordinateY = null;
+  const board = gameState.board;
+
+  for (let y = 0; y < board.length; y++) {
+    const row = board[y];
+    const pieceValue = row[x];
+    if (pieceValue === null) {
+      coordinateY = y;
+    } else {
+      return coordinateY;
+    }
+  }
+  return coordinateY;
 }
 
 
