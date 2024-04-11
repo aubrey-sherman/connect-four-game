@@ -19,7 +19,8 @@ const gameState = {
 
 
 function switchCurrPlayer() {
-  // TODO: switch currPlayer 1 <-> 2
+  const player = gameState.currPlayer;
+  gameState.currPlayer = player === 1 ? 2 : 1;
 }
 
 /**
@@ -68,11 +69,6 @@ function checkForWin() {
    * currPlayer
    */
   function _win(cells) {
-
-    // TODO: Check four cells to see if they're all legal & all color of current
-    // player
-
-    console.log('Cells:', areCellsValid(cells));
     return areCellsValid(cells) && areAllSameColor(cells);
   }
 
@@ -103,7 +99,6 @@ function checkForWin() {
    */
 
   function areAllSameColor(cells) {
-    console.log(cells);
     const cellBoardPieces = cells.map(cell => {
       const y = cell[0];
       const x = cell[1];

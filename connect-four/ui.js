@@ -72,6 +72,21 @@ function endGame(msg) {
 }
 
 
+/**
+ * Mutates game board state by taking in y and x variables and adding player
+ * number to that index of array.
+ */
+function updateGameBoard(y, x) {
+  const board = gameState.board;
+  const player = gameState.currPlayer;
+  board[y][x] = player;
+}
+
+function checkForTie() {
+  const topRow = gameState.board[0];
+  return topRow.every(value => value !== null);
+}
+
 /** handleClick: handle click of column top to play piece */
 
 function handleClick(evt) {
@@ -85,7 +100,8 @@ function handleClick(evt) {
   }
 
   // place piece in board
-  // TODO: add line to update `board` state with new piece
+  updateGameBoard(y, x);
+
 
   // add to HTML table
   placeInTable(y, x);
@@ -96,9 +112,11 @@ function handleClick(evt) {
   }
 
   // check for tie: if top row is filled, board is filled
-  // TODO: check if all cells in board are filled; if so, call endGame
+  if (checkForTie()) {
+    endGame('The game is tied!');
+  }
 
-  // TODO: switch players
+  switchCurrPlayer();
 }
 
 
